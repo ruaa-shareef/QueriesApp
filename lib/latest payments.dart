@@ -19,7 +19,7 @@ class _lastPayState extends State<lastPays> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[600],
+        backgroundColor: Colors.indigo[800],
         title: Text(
           "آخر الدفعات",
           style: TextStyle(color: Colors.white),
@@ -38,12 +38,12 @@ class _lastPayState extends State<lastPays> {
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(0, 15, 30, 0),
+            padding: EdgeInsets.fromLTRB(0, 25, 30, 0),
             child: Container(
               alignment: Alignment.topRight,
               child: Text(
-                'العميل',
-                style: TextStyle(color: Colors.grey),
+                'المشترك',
+                style: TextStyle(color: Colors.grey, fontSize: 30),
               ),
             ),
           ),
@@ -53,7 +53,7 @@ class _lastPayState extends State<lastPays> {
               alignment: Alignment.topRight,
               child: Text(
                 "${this.nameA0}",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 40),
               ),
             ),
           ),

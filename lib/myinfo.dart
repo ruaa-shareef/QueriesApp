@@ -21,7 +21,7 @@ class _myInfoState extends State<myInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[600],
+        backgroundColor: Colors.indigo[800],
         title: Text(
           "المعلومات الشخصية",
           style: TextStyle(color: Colors.white),

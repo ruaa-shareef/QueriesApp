@@ -6,8 +6,10 @@ import 'lastes.dart';
 import 'package:http/http.dart' as http;
 import 'loding2.dart';
 import 'lodingInst.dart';
+import 'main.dart';
 import 'myinfo.dart';
 
+// ignore: must_be_immutable
 class MyHomePage extends StatefulWidget {
   String agreementId;
   String nameA;
@@ -47,35 +49,39 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[600],
+        toolbarHeight: 70.0,
+        backgroundColor: Colors.indigo[800],
         title: Center(
           child: Text(
             "فواتيري",
-            style: TextStyle(color: Colors.white),
+            style: TextStyle(color: Colors.white, fontSize: 40),
           ),
         ),
-        actions: [
-          Padding(
-            padding: EdgeInsets.fromLTRB(0, 0, 15, 0),
-            child: Container(
-              child: Icon(
-                Icons.logout_outlined,
-                color: Colors.black,
-                size: 30,
+        leading: GestureDetector(
+          onTap: () {
+            Navigator.of(context).push(
+              MaterialPageRoute<void>(
+                builder: (BuildContext context) => Servicespage(),
               ),
+            );
+          },
+          child: Center(
+            child: Text(
+              "خروج",
+              style: TextStyle(fontSize: 20, color: Colors.white),
             ),
-          )
-        ],
+          ),
+        ),
       ),
       body: Column(
         children: <Widget>[
           Padding(
-            padding: EdgeInsets.fromLTRB(0, 15, 30, 0),
+            padding: EdgeInsets.fromLTRB(0, 25, 30, 0),
             child: Container(
               alignment: Alignment.topRight,
               child: Text(
-                'العميل',
-                style: TextStyle(color: Colors.grey),
+                'المشترك',
+                style: TextStyle(color: Colors.grey, fontSize: 30),
               ),
             ),
           ),
@@ -85,152 +91,205 @@ class _MyHomePageState extends State<MyHomePage> {
               alignment: Alignment.topRight,
               child: Text(
                 "${this.nameA0}",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 40),
               ),
             ),
           ),
           Padding(
-            padding: EdgeInsets.fromLTRB(40, 100, 30, 0),
+            padding: EdgeInsets.fromLTRB(50, 130, 50, 0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: Container(
-                    color: Colors.blue[100],
-                    height: 200,
-                    width: 200,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
-                          child: IconButton(
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute<void>(
-                                    builder: (BuildContext context) =>
-                                        installments(bbills, this.nameA0),
-                                  ),
-                                );
-                              },
-                              icon: Icon(
-                                Icons.feed_rounded,
-                                size: 100,
-                              )),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            installments(bbills, this.nameA0),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(30.0),
+                    child: Container(
+                      color: Colors.blue[100],
+                      height: 250,
+                      width: 250,
+                      child: Center(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Container(
+                              padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                              child: IconButton(
+                                  onPressed: () {
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute<void>(
+                                        builder: (BuildContext context) =>
+                                            installments(bbills, this.nameA0),
+                                      ),
+                                    );
+                                  },
+                                  icon: Padding(
+                                    padding:
+                                        const EdgeInsets.fromLTRB(0, 0, 50, 0),
+                                    child: Container(
+                                      child: Icon(
+                                        Icons.feed_rounded,
+                                        size: 120,
+                                      ),
+                                    ),
+                                  )),
+                            ),
+                            Padding(
+                              padding: const EdgeInsets.all(15.0),
+                              child: Text(
+                                "آخر الفواتير",
+                                style: TextStyle(fontSize: 25),
+                              ),
+                            )
+                          ],
                         ),
-                        Text(
-                          "آخر الفواتير",
-                          style: TextStyle(fontSize: 20),
-                        )
-                      ],
+                      ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: Container(
-                    color: Colors.purple[100],
-                    height: 200,
-                    width: 200,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
-                          child: IconButton(
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute<void>(
-                                    builder: (BuildContext context) =>
-                                        Loadingpay(
-                                            this.agreementId0, this.nameA0),
-                                  ),
-                                );
-                              },
-                              icon: Icon(
-                                Icons.price_check_sharp,
-                                size: 100,
-                              )),
-                        ),
-                        Text(
-                          "آخر الدفعات",
-                          style: TextStyle(fontSize: 20),
-                        )
-                      ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            Loadingpay(this.agreementId0, this.nameA0),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(30.0),
+                    child: Container(
+                      color: Colors.purple[100],
+                      height: 250,
+                      width: 250,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute<void>(
+                                      builder: (BuildContext context) =>
+                                          Loadingpay(
+                                              this.agreementId0, this.nameA0),
+                                    ),
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.price_check_sharp,
+                                  size: 120,
+                                )),
+                          ),
+                          Text(
+                            "آخر الدفعات",
+                            style: TextStyle(fontSize: 25),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: Container(
-                    color: Colors.green[200],
-                    height: 200,
-                    width: 200,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
-                          child: IconButton(
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute<void>(
-                                    builder: (BuildContext context) =>
-                                        LoadingInst(
-                                            this.agreementId0, this.nameA0),
-                                  ),
-                                );
-                              },
-                              icon: Icon(
-                                Icons.monetization_on_sharp,
-                                size: 100,
-                              )),
-                        ),
-                        Text(
-                          "الأقساط ",
-                          style: TextStyle(fontSize: 20),
-                        )
-                      ],
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            LoadingInst(this.agreementId0, this.nameA0),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(30.0),
+                    child: Container(
+                      color: Colors.green[200],
+                      height: 250,
+                      width: 250,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute<void>(
+                                      builder: (BuildContext context) =>
+                                          LoadingInst(
+                                              this.agreementId0, this.nameA0),
+                                    ),
+                                  );
+                                },
+                                icon: Icon(
+                                  Icons.monetization_on_sharp,
+                                  size: 120,
+                                )),
+                          ),
+                          Text(
+                            "الأقساط ",
+                            style: TextStyle(fontSize: 25),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 ),
-                Padding(
-                  padding: EdgeInsets.all(30.0),
-                  child: Container(
-                    color: Colors.pink[100],
-                    height: 200,
-                    width: 200,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
-                          child: IconButton(
-                              onPressed: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute<void>(
-                                    builder: (BuildContext context) => myInfo(
-                                        this.agreementId0,
-                                        this.nameA0,
-                                        this.addressa0),
+                GestureDetector(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) => myInfo(
+                            this.agreementId0, this.nameA0, this.addressa0),
+                      ),
+                    );
+                  },
+                  child: Padding(
+                    padding: EdgeInsets.all(30.0),
+                    child: Container(
+                      color: Colors.pink[100],
+                      height: 250,
+                      width: 250,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                            child: IconButton(
+                                onPressed: () {
+                                  Navigator.of(context).push(
+                                    MaterialPageRoute<void>(
+                                      builder: (BuildContext context) => myInfo(
+                                          this.agreementId0,
+                                          this.nameA0,
+                                          this.addressa0),
+                                    ),
+                                  );
+                                },
+                                icon: Center(
+                                  child: Icon(
+                                    Icons.account_box,
+                                    size: 120,
                                   ),
-                                );
-                              },
-                              icon: Icon(
-                                Icons.account_box,
-                                size: 100,
-                              )),
-                        ),
-                        Text(
-                          "بياناتي",
-                          style: TextStyle(fontSize: 20),
-                        )
-                      ],
+                                )),
+                          ),
+                          Text(
+                            "بياناتي",
+                            style: TextStyle(fontSize: 25),
+                          )
+                        ],
+                      ),
                     ),
                   ),
                 )

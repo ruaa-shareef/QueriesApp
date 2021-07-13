@@ -18,31 +18,33 @@ class _installmentsState extends State<installments> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blue[600],
+        toolbarHeight: 70.0,
+        backgroundColor: Colors.indigo[800],
         title: Text(
           "آخر الفواتير",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 40),
         ),
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.white,
-          ),
+        leading: Center(
+          child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                "الرجوع ",
+                style: TextStyle(fontSize: 20),
+              )),
         ),
       ),
       body: Column(
         children: [
           Padding(
-            padding: EdgeInsets.fromLTRB(0, 15, 30, 0),
+            padding: EdgeInsets.fromLTRB(0, 25, 30, 0),
             child: Container(
               alignment: Alignment.topRight,
               child: Text(
-                'العميل',
-                style: TextStyle(color: Colors.grey),
+                'المشترك',
+                style: TextStyle(color: Colors.grey, fontSize: 30),
               ),
             ),
           ),
@@ -52,7 +54,7 @@ class _installmentsState extends State<installments> {
               alignment: Alignment.topRight,
               child: Text(
                 "${this.nameA0}",
-                style: TextStyle(color: Colors.black, fontSize: 20),
+                style: TextStyle(color: Colors.black, fontSize: 40),
               ),
             ),
           ),
@@ -63,27 +65,39 @@ class _installmentsState extends State<installments> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: 300,
+                  width: 450,
                   child: Center(
-                    child: Text("المبلغ المدفوع "),
+                    child: Text(
+                      "المبلغ المدفوع ",
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
                 Container(
-                  width: 300,
+                  width: 450,
                   child: Center(
-                    child: Text("المبلغ"),
+                    child: Text(
+                      "المبلغ",
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
                 Container(
-                  width: 300,
+                  width: 450,
                   child: Center(
-                    child: Text("رقم الفاتورة "),
+                    child: Text(
+                      "رقم الفاتورة ",
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
                 Container(
-                  width: 300,
+                  width: 450,
                   child: Center(
-                    child: Text("التاريخ"),
+                    child: Text(
+                      "التاريخ",
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
               ],
@@ -120,27 +134,39 @@ class Lbillitem extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             children: [
               Container(
-                width: 300,
+                width: 450,
                 child: Center(
-                  child: Text("${bill0.pamt}"),
+                  child: Text(
+                    "${bill0.pamt}",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ),
               Container(
-                width: 300,
+                width: 450,
                 child: Center(
-                  child: Text("${bill0.amt}"),
+                  child: Text(
+                    "${bill0.amt}",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ),
               Container(
-                width: 300,
+                width: 450,
                 child: Center(
-                  child: Text("${bill0.no}"),
+                  child: Text(
+                    "${bill0.no}",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ),
               Container(
-                width: 300,
+                width: 450,
                 child: Center(
-                  child: Text("${bill0.dt}"),
+                  child: Text(
+                    "${bill0.dt}",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ),
             ],

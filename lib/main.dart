@@ -17,45 +17,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Services(
-        title: 'الخدمات',
-      ),
+      home: Servicespage(),
     );
   }
 }
 
-class Services extends StatefulWidget {
-  Services({Key? key, required this.title}) : super(key: key);
-
-  final String title;
+class Servicespage extends StatefulWidget {
   @override
   _ServicesState createState() => _ServicesState();
 }
 
-class _ServicesState extends State<Services> {
-  Future<Personinfo> fetchNo(String no) async {
-    final response = await http.post(
-      Uri.parse(
-          'http://api.hepco.ps:8084/integration/login-service.php?id=${_controller.text}&fun=logins'),
-      headers: <String, String>{
-        'Content-Type': 'application/json; charset=UTF-8',
-      },
-      body: jsonEncode(<String, String>{
-        'Number': no,
-      }),
-    );
-
-    if (response.statusCode == 201) {
-      // If the server did return a 201 CREATED response,
-      // then parse the JSON.
-      return Personinfo.fromJson(jsonDecode(response.body));
-    } else {
-      // If the server did not return a 201 CREATED response,
-      // then throw an exception.
-      throw Exception('Failed to create album.');
-    }
-  }
-
+class _ServicesState extends State<Servicespage> {
   late TextEditingController _controller;
 
   void initState() {
@@ -67,10 +39,11 @@ class _ServicesState extends State<Services> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue[600],
+          toolbarHeight: 70.0,
+          backgroundColor: Colors.indigo[800],
           title: Text("الخدمات",
               style: TextStyle(
-                fontSize: 30,
+                fontSize: 40,
                 color: Colors.white,
               )),
           centerTitle: true,
@@ -81,45 +54,41 @@ class _ServicesState extends State<Services> {
             },
           ),
         ),
-        body: Container(
-          child: Column(
-            children: [
-              SizedBox(
-                width: 1300,
-                height: 150,
-              ),
-              Text("رقم الخدمة",
-                  style: (TextStyle(
-                    color: Colors.black,
-                    fontSize: 50,
-                  ))),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 300,
-                height: 50,
-                child: TextField(
-                  enableInteractiveSelection: false,
-                  textAlign: TextAlign.right,
-                  controller: _controller,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: 'ادخل رقم الخدمة',
-                    alignLabelWithHint: true,
+        body: Center(
+          child: Container(
+            child: Column(
+              children: [
+                SizedBox(
+                  width: 1300,
+                  height: 280,
+                ),
+                Text("رقم الخدمة",
+                    style: (TextStyle(
+                      color: Colors.black,
+                      fontSize: 50,
+                    ))),
+                SizedBox(
+                  height: 30,
+                ),
+                Container(
+                  width: 400,
+                  height: 60,
+                  child: TextField(
+                    enableInteractiveSelection: false,
+                    textAlign: TextAlign.right,
+                    controller: _controller,
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'ادخل رقم الخدمة',
+                      alignLabelWithHint: true,
+                    ),
                   ),
                 ),
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Container(
-                width: 300,
-                height: 50,
-                child: ElevatedButton(
-                  child: Text("دخول"),
-                  onPressed: () {
-                    _futureNo = fetchNo(_controller.text);
+                SizedBox(
+                  height: 30,
+                ),
+                GestureDetector(
+                  onTap: () {
                     Navigator.of(context).push(
                       MaterialPageRoute<void>(
                         builder: (BuildContext context) =>
@@ -127,9 +96,41 @@ class _ServicesState extends State<Services> {
                       ),
                     );
                   },
+                  child: Card(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(20.0),
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      child: Container(
+                        width: 400,
+                        height: 60,
+                        color: Colors.indigo[800],
+                        child: Center(
+                          child: Text(
+                            "دخول",
+                            style: TextStyle(color: Colors.white, fontSize: 30),
+                          ),
+                        ),
+                        /*ElevatedButton(
+                          child: Text(
+                            "دخول",
+                          ),
+                          onPressed: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute<void>(
+                                builder: (BuildContext context) =>
+                                    Loading(_controller.text),
+                              ),
+                            );
+                          },
+                        ),*/
+                      ),
+                    ),
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ));
   }
