@@ -112,19 +112,6 @@ class _ServicesState extends State<Servicespage> {
                             style: TextStyle(color: Colors.white, fontSize: 30),
                           ),
                         ),
-                        /*ElevatedButton(
-                          child: Text(
-                            "دخول",
-                          ),
-                          onPressed: () {
-                            Navigator.of(context).push(
-                              MaterialPageRoute<void>(
-                                builder: (BuildContext context) =>
-                                    Loading(_controller.text),
-                              ),
-                            );
-                          },
-                        ),*/
                       ),
                     ),
                   ),

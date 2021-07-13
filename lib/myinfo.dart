@@ -21,27 +21,29 @@ class _myInfoState extends State<myInfo> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70.0,
         backgroundColor: Colors.indigo[800],
         title: Text(
           "المعلومات الشخصية",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 40.0),
         ),
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.white,
-          ),
+        leading: Center(
+          child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                "الرجوع ",
+                style: TextStyle(fontSize: 20),
+              )),
         ),
       ),
       body: Center(
         child: Column(
           children: [
             SizedBox(
-              height: 100,
+              height: 200,
             ),
             Card(
               shape: RoundedRectangleBorder(

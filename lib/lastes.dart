@@ -69,7 +69,8 @@ class _installmentsState extends State<installments> {
                   child: Center(
                     child: Text(
                       "المبلغ المدفوع ",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -78,7 +79,8 @@ class _installmentsState extends State<installments> {
                   child: Center(
                     child: Text(
                       "المبلغ",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -87,7 +89,8 @@ class _installmentsState extends State<installments> {
                   child: Center(
                     child: Text(
                       "رقم الفاتورة ",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -96,7 +99,8 @@ class _installmentsState extends State<installments> {
                   child: Center(
                     child: Text(
                       "التاريخ",
-                      style: TextStyle(fontSize: 20),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),
@@ -138,7 +142,7 @@ class Lbillitem extends StatelessWidget {
                 child: Center(
                   child: Text(
                     "${bill0.pamt}",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -147,7 +151,7 @@ class Lbillitem extends StatelessWidget {
                 child: Center(
                   child: Text(
                     "${bill0.amt}",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -156,7 +160,7 @@ class Lbillitem extends StatelessWidget {
                 child: Center(
                   child: Text(
                     "${bill0.no}",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),
@@ -165,7 +169,7 @@ class Lbillitem extends StatelessWidget {
                 child: Center(
                   child: Text(
                     "${bill0.dt}",
-                    style: TextStyle(fontSize: 20),
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                 ),
               ),

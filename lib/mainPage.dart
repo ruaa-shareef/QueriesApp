@@ -121,7 +121,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: [
                             Container(
-                              padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                              padding: EdgeInsets.fromLTRB(0, 0, 85, 100),
                               child: IconButton(
                                   onPressed: () {
                                     Navigator.of(context).push(
@@ -146,7 +146,8 @@ class _MyHomePageState extends State<MyHomePage> {
                               padding: const EdgeInsets.all(15.0),
                               child: Text(
                                 "آخر الفواتير",
-                                style: TextStyle(fontSize: 25),
+                                style: TextStyle(
+                                    fontSize: 25, fontWeight: FontWeight.bold),
                               ),
                             )
                           ],
@@ -175,7 +176,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                            padding: EdgeInsets.fromLTRB(0, 0, 70, 130),
                             child: IconButton(
                                 onPressed: () {
                                   Navigator.of(context).push(
@@ -193,7 +194,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Text(
                             "آخر الدفعات",
-                            style: TextStyle(fontSize: 25),
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
@@ -220,7 +222,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                            padding: EdgeInsets.fromLTRB(0, 0, 95, 130),
                             child: IconButton(
                                 onPressed: () {
                                   Navigator.of(context).push(
@@ -238,7 +240,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Text(
                             "الأقساط ",
-                            style: TextStyle(fontSize: 25),
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
                           )
                         ],
                       ),
@@ -265,7 +268,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           Container(
-                            padding: EdgeInsets.fromLTRB(0, 0, 70, 100),
+                            padding: EdgeInsets.fromLTRB(0, 0, 85, 130),
                             child: IconButton(
                                 onPressed: () {
                                   Navigator.of(context).push(
@@ -286,7 +289,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           ),
                           Text(
                             "بياناتي",
-                            style: TextStyle(fontSize: 25),
+                            style: TextStyle(
+                                fontSize: 25, fontWeight: FontWeight.bold),
                           )
                         ],
                       ),

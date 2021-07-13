@@ -19,20 +19,22 @@ class _lastPayState extends State<lastPays> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: 70.0,
         backgroundColor: Colors.indigo[800],
         title: Text(
           "آخر الدفعات",
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: Colors.white, fontSize: 40.0),
         ),
         centerTitle: true,
-        leading: IconButton(
-          onPressed: () {
-            Navigator.of(context).pop();
-          },
-          icon: Icon(
-            Icons.arrow_back_ios_new,
-            color: Colors.white,
-          ),
+        leading: Center(
+          child: GestureDetector(
+              onTap: () {
+                Navigator.of(context).pop();
+              },
+              child: Text(
+                "الرجوع ",
+                style: TextStyle(fontSize: 20),
+              )),
         ),
       ),
       body: Column(
@@ -63,15 +65,23 @@ class _lastPayState extends State<lastPays> {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: 300,
+                  width: 550,
                   child: Center(
-                    child: Text("الدفعات "),
+                    child: Text(
+                      "الدفعات ",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 Container(
-                  width: 300,
+                  width: 350,
                   child: Center(
-                    child: Text("التاريخ"),
+                    child: Text(
+                      "التاريخ",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],
@@ -113,15 +123,23 @@ class Lbillitem extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               children: [
                 Container(
-                  width: 300,
+                  width: 550,
                   child: Center(
-                    child: Text("${info.dt}"),
+                    child: Text(
+                      "${info.dt}",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
                 Container(
-                  width: 300,
+                  width: 350,
                   child: Center(
-                    child: Text("${info.amt}"),
+                    child: Text(
+                      "${info.amt}",
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
                   ),
                 ),
               ],
